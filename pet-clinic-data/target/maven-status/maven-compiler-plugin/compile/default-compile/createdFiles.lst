@@ -1,0 +1,5 @@
+org/springframework/sfgpetclinic/model/Person.class
+org/springframework/sfgpetclinic/model/Vet.class
+org/springframework/sfgpetclinic/model/Pet.class
+org/springframework/sfgpetclinic/model/PetType.class
+org/springframework/sfgpetclinic/model/Owner.class
