@@ -1,0 +1,5 @@
+org/springframework/sfgpetclinic/SfgPetClinicApplication.class
+org/springframework/sfgpetclinic/controller/OwnerController.class
+org/springframework/sfgpetclinic/Bootstrap/DataLoader.class
+org/springframework/sfgpetclinic/controller/IndexController.class
+org/springframework/sfgpetclinic/controller/VetController.class
