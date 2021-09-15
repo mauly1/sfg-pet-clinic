@@ -5,8 +5,6 @@ import org.springframework.sfgpetclinic.model.*;
 import org.springframework.sfgpetclinic.services.OwnerService;
 import org.springframework.sfgpetclinic.services.SpecialityService;
 import org.springframework.sfgpetclinic.services.VetService;
-import org.springframework.sfgpetclinic.services.map.OwnerServiceMap;
-import org.springframework.sfgpetclinic.services.map.VetServiceMap;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
