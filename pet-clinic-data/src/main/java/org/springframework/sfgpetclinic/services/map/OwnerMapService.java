@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-@Profile({"default","map"})
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
     private final PetTypeService petTypeService;
     private final PetService petService;
@@ -39,17 +39,17 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner save(Owner owner) {
         if (owner != null) {
-            if(owner.getPets()!=null){
+            if (owner.getPets() != null) {
                 owner.getPets().forEach(pet -> {
-                    if(pet.getPetType()!=null){
-                    if(pet.getPetType().getId()==null){
-                        pet.setPetType(petTypeService.save(pet.getPetType()));
-                    }
-                    }else{
+                    if (pet.getPetType() != null) {
+                        if (pet.getPetType().getId() == null) {
+                            pet.setPetType(petTypeService.save(pet.getPetType()));
+                        }
+                    } else {
                         throw new RuntimeException("Pet Type is required");
                     }
-                    if(pet.getId()==null){
-                        Pet savedPet =petService.save(pet);
+                    if (pet.getId() == null) {
+                        Pet savedPet = petService.save(pet);
                         pet.setId(savedPet.getId());
                     }
                 });
@@ -67,11 +67,21 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+        return this.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
     public Owner findByFirstName(String firstName) {
-        return null;
+
+        return this.findAll()
+                .stream()
+                .filter(owner -> owner.getFirstName().equalsIgnoreCase(firstName))
+                .findFirst()
+                .orElse(null);
+
     }
 }
